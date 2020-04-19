@@ -12,6 +12,10 @@
 <input type="text" id="comment_text">
 <button id="comment_button" class="btn btn-secondary">コメント</button>
 
+<div>
+  <%= link_to '削除', @post, method: :delete, data: { confirm: '削除しますか?' } %>
+</div>
+
 <div id="comment_list">
   <ul id="list" class="list-group">
   </ul>
