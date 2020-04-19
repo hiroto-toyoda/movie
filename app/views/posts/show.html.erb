@@ -1,0 +1,18 @@
+<div>
+  <h1><%= @post.title %></h1>
+</div>
+
+<div>
+  <p><%= @post.body %></p>
+</div>
+<div id="nicoscreen">
+  <iframe width="1024" height="576" src="<%= @post.video.to_s %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<input type="text" id="comment_text">
+<button id="comment_button" class="btn btn-secondary">コメント</button>
+
+<div id="comment_list">
+  <ul id="list" class="list-group">
+  </ul>
+</div>

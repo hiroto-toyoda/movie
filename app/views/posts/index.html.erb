@@ -1,12 +1,16 @@
 <p id="notice"><%= notice %></p>
 <ul class="list-unstyled">
   <% @posts.each do |post| %>
-  <li class="media">
-    <%= video_tag post.video.to_s, :size => "360x200" %>
-    <div class="media-body">
-      <h5 class="mt-0 mb-1"><%= post.title %></h5>
-      <%= post.body %>
-    </div>
-  </li>
+    <li class="media">
+      <%= link_to post_path(post) do %>
+        <%= video_tag post.video.to_s, :size => "360x200" %>
+      <% end %>
+      <div class="media-body">
+        <%= link_to post_path(post) do %>
+          <h5 class="mt-0 mb-1"><%= post.title %></h5>
+        <% end %>
+        <%= post.body %>
+      </div>
+    </li>
   <% end %>
 </ul>
