@@ -1,0 +1,8 @@
+= form_with(model: @post, local: true) do |form|
+  .form-group
+    = form.text_field :title, placeholder: "タイトル"
+  .form-group
+    = form.text_area :body, placeholder: "動画の説明"
+  .form-group
+    = form.file_field :video
+  %button.btn.btn-primary{:type => "submit"} Submit

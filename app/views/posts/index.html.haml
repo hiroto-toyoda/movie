@@ -1,0 +1,33 @@
+-# %p#notice= notice
+-# %ul.list-unstyled
+-#   - @posts.each do |post|
+-#     %li.media
+-#       = link_to post_path(post) do
+-#         = video_tag post.video.to_s, :size => "360x200"
+-#       .media-body
+-#         = link_to post_path(post) do
+-#           %h5.mt-0.mb-1= post.title
+-#         = post.body
+
+.contents.row
+  - @posts.each do |post|
+    .content_post{:style => "background-video: url(#{post.video});"}
+      .more
+        %span= video_tag 'arrow_top.png'
+        %ul.more_list
+        -# - if user_signed_in? && @post.user_id == current_user.id
+          削除
+          %li
+            = link_to '詳細', "/posts/#{post.id}", method: :get
+          -# %li
+          -#   = link_to '編集', "/posts/#{post.id}/edit", method: :get
+          %li
+            = link_to '削除', "/posts/#{post.id}", method: :delete
+      %li.media
+      = link_to post_path(post) do
+        = video_tag post.video.to_s, :size => "360x200"
+      = simple_format(post.body)
+      %span.name
+        %a{:href => ""}
+          %span 投稿者
+          = post.user.nickname

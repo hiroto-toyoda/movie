@@ -1,0 +1,18 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  = link_to "swimlog", root_path, class: "navbar-brand"
+  #navbarSupportedContent.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+    %form.form-inline.my-2.my-lg-0
+      = link_to "投稿する", new_post_path, class: "new-post btn btn-info"
+  - if user_signed_in?
+    .user_nav.grid-6
+      %span
+        = current_user.nickname
+        %ul.user__info
+          %li
+            = link_to "マイページ", "/users/#{current_user.id}"
+            = link_to "ログアウト", destroy_user_session_path,method:   :delete
+  - else
+    .grid-6
+      = link_to "ログイン", new_user_session_path, class: 'post'
+      = link_to "登録する", new_user_registration_path, class: 'post'

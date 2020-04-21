@@ -3,5 +3,8 @@ Rails.application.routes.draw do
   get 'pages/home'
   root 'posts#index'
   resources :posts, only: [:new, :create, :index, :show, :destroy]
+  resources :posts do
+    resources :comments, only: [:create]
+  end  
   resources :users, only: [:show]
 end

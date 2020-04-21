@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :destroy]
   before_action :move_to_index, except: [:index, :show]
+  # before_action :signed_in_user, only: [:show, :destroy]
+  # before_action :correct_user,   only: [:show, :destroy]
   def new
     @post = Post.new
   end
@@ -16,13 +18,23 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order('created_at DESC')
+    @posts = Post.includes(:user)
   end
 
   def show
+    @comment = Comment.new
+    @comments = @post.comments.includes(:user)
   end
 
   def destroy
-    redirect_to root_path, notice: '削除しました' if @post.destroy
+    post = Post.find(params[:id])
+    if post.destroy
+      redirect_to root_path, notice: '削除しました'
+    else
+      render :index
+    end
+    # @group = Group.find(params[:id])
+    # @post = post.find(params[:id])
   end
 
   private

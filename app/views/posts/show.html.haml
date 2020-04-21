@@ -1,0 +1,12 @@
+%div
+  %h1= @post.title
+%div
+  %p= @post.body
+#nicoscreen
+  %iframe{:allow => "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "576", :src => "#{@post.video.to_s}", :width => "1024"}
+%input#comment_text{:type => "text"}/
+%button#comment_button.btn.btn-secondary コメント
+%div
+  = link_to '削除', @post, method: :delete, data: { confirm: '削除しますか?' }
+#comment_list
+  %ul#list.list-group

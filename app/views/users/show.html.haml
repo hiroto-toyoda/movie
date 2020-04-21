@@ -1,0 +1,8 @@
+.contents.row
+  %p
+    = @nickname
+    さんの投稿一覧
+  - @posts.each do |post|
+    .content_post{:style => "background-video: url(#{post.video});"}
+      = simple_format(post.body)
+      %span.title= post.title
