@@ -6,12 +6,15 @@
       = link_to "投稿する", new_post_path, class: "new-post btn btn-info"
   - if user_signed_in?
     .user_nav.grid-6
-      %span
-        = current_user.nickname
-        %ul.user__info
-          %li
-            = link_to "マイページ", "/users/#{current_user.id}"
-            = link_to "ログアウト", destroy_user_session_path,method:   :delete
+      
+      %ul.user__info.disply_flex
+        %li
+          .user_css
+            = current_user.nickname
+        %li
+          = link_to "マイページ", "/users/#{current_user.id}", class: "new-post btn btn-info"
+        %li
+          = link_to "ログアウト", destroy_user_session_path,method:   :delete, class: "new-post btn btn-info"
   - else
     .grid-6
       = link_to "ログイン", new_user_session_path, class: 'post'

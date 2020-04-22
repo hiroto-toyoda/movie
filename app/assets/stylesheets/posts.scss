@@ -1,3 +1,10 @@
+// navbar
+
+
+
+
+
+
 .media {
   padding-top: 20px;
 }
@@ -24,27 +31,51 @@
   height: 43px;
 }
 
+.content_post {
+  border: solid 2px gray;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.user_css {
+  border: solid 1px gray;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.post_image {
+  margin-top: 10px;
+  text-align: center;
+
+  .img {
+    border-radius: 20px;
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .img:hover {
+
+    transform: scale(1.1);
+    transition-duration: 0.3s;
+
+  }
+}
+
+ul {
+  li {
+    display: inline-block;
+    list-style: none;
+
+  }
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// /*
+/// /*
 //  * "ほのか明朝" licensed under the IPA Font License Agreement v1.0
 //  * http://fontfree.me/966（配布元のURL）
 //  * http://ipafont.ipa.go.jp/（IPAフォントのURL）

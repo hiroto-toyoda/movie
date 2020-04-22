@@ -1,11 +1,24 @@
 .bg-light {
   background-color: steelblue;
-}
 
-.navbar-brand {
-  margin-left: 270px;
-}
+  .navbar-brand {
+    margin-left: 270px;
+  }
 
-.new-post {
-  margin-right: 300px;
+  // .new-post {
+  //   margin-right: 300px;
+  // }
+
+  .user_nav {
+    ul {
+      li {
+        list-style: none;
+        display: inline-block;
+
+        a {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
