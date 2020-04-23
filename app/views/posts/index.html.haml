@@ -16,6 +16,7 @@
       .post_image
         = link_to post_path(post) do
           = video_tag post.video.to_s, class: "img"
+          -# = video_tag post.video.to_s, :size => "360x200"
       %table.table.table-bordered
         %tr
           %th.col-sm
