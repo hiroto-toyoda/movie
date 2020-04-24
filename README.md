@@ -68,7 +68,8 @@ carrierwave
 
 bootstrap
 
-
+## URL
+http://18.180.14.199/
 
 
 ## 今後実装予定
