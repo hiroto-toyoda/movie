@@ -17,13 +17,16 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.order('created_at DESC')
-    @posts = Post.includes(:user)
+    @posts = Post.all.order('created_at DESC').page(params[:page]).per(10)
+    # @posts = Post.includes(:user)
   end
 
   def show
-    @comment = Comment.new
-    @comments = @post.comments.includes(:user)
+    # @comment = Comment.new
+    # @comments = @post.comments.includes(:user)
+    @post = Post.find(params[:id])
+    @comments = @post.comments.order('created_at DESC')
+    @comment = @post.comments.build
   end
 
   def destroy

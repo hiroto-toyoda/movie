@@ -4,8 +4,29 @@
   %p= @post.body
 #nicoscreen
   %iframe{:allow => "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "576", :src => "#{@post.video.to_s}", :width => "1024"}
-%input#comment_text{:type => "text"}/
-%button#comment_button.btn.btn-secondary コメント
+
+-# %input#comment_text{:type => "text"}/
+-# %button#comment_button.btn.btn-secondary コメント
+
+-# - if current_user
+-#   = form_tag("/posts/#{@post.id}/comments",  method: :post,  id: "new_comment" ) do
+-#     %textarea.textbox{:cols => "30", :name => "text", :placeholder => "コメントする", :rows => "2"}
+-#     %input.form__submit{:type => "submit", :value => "SEND"}/
+-# - else
+-#   %strong
+-#     %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+
+- if user_signed_in?
+  = form_with(model: [@post, @comment], local: true) do |f|
+    = f.text_area :content, class: "form-control", rows: 5
+    = button_tag type: "submit", class: "btn btn-success float-right mt-1" do
+      %i.far.fa-comments
+      コメントする
+%p コメント一覧
+- @comments.each do |comment|
+  %p= comment.content
+
+
 %div
   = link_to '削除', @post, method: :delete, data: { confirm: '削除しますか?' }
 #comment_list

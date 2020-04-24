@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2020_04_21_124559) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "tweet_id"
-    t.text "text"
+    t.integer "post_id"
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
